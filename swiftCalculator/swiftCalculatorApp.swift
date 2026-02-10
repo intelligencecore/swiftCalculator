@@ -1,9 +1,4 @@
-//
-//  swiftCalculatorApp.swift
-//  swiftCalculator
-//
-//  Created by Richier on 2/9/26.
-//
+
 
 import SwiftUI
 

@@ -1,23 +1,41 @@
-//
-//  ContentView.swift
-//  swiftCalculator
-//
-//  Created by Richier on 2/9/26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                    VStack {
+                        Image(systemName: "iphone")
+                            .frame(width: 100, height: 80)
+                            .foregroundStyle(
+                                LinearGradient(colors: [Color.blue, Color.green, Color.yellow], startPoint: .center, endPoint: .bottomLeading))
+                            .font(.system(size: 100))
+                    }
+                    .padding(20)
+                
+                
+                NavigationLink("Other view") {
+                    otherView()
+                }
+                .buttonStyle(GlassButtonStyle())
+                .padding()
+                .ignoresSafeArea(.all)
+                
+                NavigationLink("Icon View"){
+                    IconView()
+                }
+                .buttonStyle(GlassButtonStyle())
+                .padding()
+                .ignoresSafeArea(.all)
+            }
         }
-        .padding()
     }
 }
+
+
+
+
+
 
 #Preview {
     ContentView()
