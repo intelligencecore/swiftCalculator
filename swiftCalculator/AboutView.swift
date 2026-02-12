@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct IconView: View {
+struct AboutView: View {
     var body: some View {
 
             // Design a view that the app was made with Swift
@@ -35,5 +35,5 @@ NavigationStack{
 }
     
 #Preview {
-    IconView()
+    AboutView()
 }

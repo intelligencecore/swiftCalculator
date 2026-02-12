@@ -1,4 +1,4 @@
-# Swift Calculator
+# Swift Calculator 🧮
 
 A basic iOS calculator app built while learning Swift and SwiftUI.
 
@@ -15,6 +15,7 @@ This is my third SwiftUI project as I learn iOS development. Building a calculat
 - Swift
 - SwiftUI
 - Xcode
+- Icon Composer
 
 ## 🚀 Getting Started
 ```bash
@@ -41,7 +42,7 @@ MIT
 
 MIT License
 
-Copyright (c) 2026 
+Copyright (c) 2026 IntelligenceCore
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
