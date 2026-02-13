@@ -1,5 +1,9 @@
 # Swift Calculator 🧮
 
+
+# Version 0.0.3
+
+
 A basic iOS calculator app built while learning Swift and SwiftUI.
 
 ## 📱 About
@@ -35,9 +39,7 @@ I'm currently learning:
 - Protocol-oriented programming
 
 
-## 📄 License
 
-MIT
 ## 📄 License
 
 MIT License

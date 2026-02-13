@@ -1,7 +1,7 @@
 
 
 // TODO: Make the reset button reset the values to 0 when is pressed
-// TODO: 
+// TODO: S
 
 
 
@@ -22,12 +22,12 @@ struct SettingsView: View {
                 .bold()
                 .padding(30)
             
-            Text("0.0.2")
+            Text("0.0.3")
                 .font(.largeTitle)
                 .bold()
                 .padding(30)
         
-            Text("ALFA")
+            Text("ALPHA")
                 .font(.system(size: 80, weight: .heavy))
                 .foregroundColor(.white)
                 .padding(.horizontal, 30)
@@ -93,7 +93,7 @@ struct SettingsView: View {
                 Button {
                     // Reset action
                 } label: {
-                    Label("Reset", systemImage: "exclamationmark.arrow.trianglehead.counterclockwise.rotate.90")
+                    Label("Reset to default", systemImage: "exclamationmark.arrow.trianglehead.counterclockwise.rotate.90")
                 }
                 .foregroundStyle(.red)
             }
