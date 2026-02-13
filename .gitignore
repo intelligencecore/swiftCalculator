@@ -1,0 +1,24 @@
+#Git Ignore files from the system
+# macOS
+  .DS_Store
+                                                                                                                   
+  # Xcode
+  xcuserdata/
+  *.xcuserstate
+  *.xccheckout
+  *.xcscmblueprint
+                                                                                                                   
+  # Build
+  build/
+  DerivedData/
+                                                                                                                   
+  # Swift Package Manager
+  .build/
+  .swiftpm/
+                                                                                                                   
+  # CocoaPods
+  Pods/
+                                                                                                                   
+  # Misc
+  .zip
+  
