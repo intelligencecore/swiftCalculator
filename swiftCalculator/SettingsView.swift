@@ -1,7 +1,7 @@
 
 
 // TODO: Make the reset button reset the values to 0 when is pressed
-// TODO: S
+
 
 
 
@@ -12,7 +12,6 @@ import WebKit
 
 struct SettingsView: View {
     
-    @State private var showWebView = false
     @State private var showGithubView = false
     @State private var showIconView = false
     var body: some View {
@@ -22,7 +21,7 @@ struct SettingsView: View {
                 .bold()
                 .padding(30)
             
-            Text("0.0.3")
+            Text("0.0.6")
                 .font(.largeTitle)
                 .bold()
                 .padding(30)
@@ -46,6 +45,7 @@ struct SettingsView: View {
                 .rotationEffect(.degrees(-15))
                 .padding(.bottom, 20)
                 .shadow(color: .orange.opacity(0.5), radius: 20, y: 10)
+                .padding(.bottom,30)
             
             List {
                 Button("App Info") {
@@ -64,7 +64,17 @@ struct SettingsView: View {
                                     }
                                 }
                 .tint(.orange)
-                                
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                 Button {
+                                        showIconView = false
+                                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                .foregroundStyle(.gray)
+                                    }
+                                }
+                            }
+                
                 
                 Button{
                     showGithubView.toggle()
@@ -90,12 +100,12 @@ struct SettingsView: View {
                 }
                 .tint(.blue)
                 
-                Button {
-                    // Reset action
-                } label: {
-                    Label("Reset to default", systemImage: "exclamationmark.arrow.trianglehead.counterclockwise.rotate.90")
-                }
-                .foregroundStyle(.red)
+//                Button {
+//                    // Reset action
+//                } label: {
+//                    Label("Reset to default", systemImage: "exclamationmark.arrow.trianglehead.counterclockwise.rotate.90")
+//                }
+//                .foregroundStyle(.red)
             }
             .scrollContentBackground(.hidden)
             .background(.ultraThinMaterial)

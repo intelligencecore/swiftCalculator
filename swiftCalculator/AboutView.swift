@@ -1,5 +1,12 @@
 import SwiftUI
 
+//TODO: Add animation to the "Swift Logo"
+
+
+
+
+
+
 struct AboutView: View {
     var body: some View {
 
