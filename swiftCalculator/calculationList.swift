@@ -15,7 +15,7 @@ struct CalculationList: View {
 		HStack {
 			
 			
-			Text("This view shows a list of previous result that the user has calculated before and a delete button at the end")
+			Text("This view shows a list of previous result that the user has calculated before and a delete button at the end.")
 		}
 		
 		HStack{

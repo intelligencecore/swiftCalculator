@@ -1,7 +1,7 @@
 # Swift Calculator 🧮
 
 
-# Version 0.0.3
+# Version 0.0.9
 
 
 A basic iOS calculator app built while learning Swift and SwiftUI.

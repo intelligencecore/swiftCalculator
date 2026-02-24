@@ -98,6 +98,8 @@ struct ContentView: View {
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
+						.navigationTitle("Calculator")
+						.padding(.bottom)
                 }
                     
                 
