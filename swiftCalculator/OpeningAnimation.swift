@@ -24,15 +24,16 @@ struct OpeningAnimation: View {
 		
 		VStack {
 				NavigationStack {
-				Image(systemName: "swift")
+				Image(systemName: "calculator") // there is no calculator SF symbol
+					
 					
 					.fontWeight(.bold)
 					.frame(width: 200, height: 200)
 					.font(.system(size: 200))
-					.foregroundColor(.orange)
+					.foregroundStyle(RadialGradient(colors: [.white, .orange], center: .center, startRadius: 50, endRadius: 150))
 				
 			}
-			RadialGradient(colors: [.orange, .white], center: .center, startRadius: 0, endRadius: 10)
+		
 		}
 		
 		

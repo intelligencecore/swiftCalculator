@@ -36,8 +36,8 @@ NavigationStack{
                 .bold()
                         
                     }
-        }
-        }
+			}
+		}
     }
 }
     

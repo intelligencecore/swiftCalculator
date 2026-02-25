@@ -12,18 +12,13 @@ struct CalculationList: View {
 	
 	var body: some View {
 		
-		HStack {
+		VStack {
 			
-			
-			Text("This view shows a list of previous result that the user has calculated before and a delete button at the end.")
-		}
-		
-		HStack{
-			List{
+			List{					//this list is just a placeholder for now (Soon to be a forEach loop to generate and include the previous results)
 				Text("Result 1")
 				Text("Result 2")
 				Text("Result 3")
-				Text("Resutl 4")
+				Text("Result 4")
 				Text("Result 5")
 				Text("Result 6")
 				Text("Result 7")
@@ -32,33 +27,36 @@ struct CalculationList: View {
 				Text("Result 10")
 				Text("Result 11")
 				Text("Result 12")
-				Text("Resut 13")
+				Text("Result 13")
 			}
 			
-			
-			
-			
-			
-		}
-		
-		
-		HStack{
 			
 			Button("Delete all") {
-				
-				print("Deleting 1")
-				
+				print("Deleting all")
+			}
+			.tint(.red)
+			.buttonStyle(GlassButtonStyle())
+			.padding()
+			
+			
+		}
+		.toolbar{
+			ToolbarItem(placement: .principal) {
+				Text("Previous Calculations")
+					.foregroundStyle(.primary)
+					.font(.headline)
+					.bold()
 			}
 		}
-		.tint(.red)
-		.buttonStyle(GlassButtonStyle())
 		
 	}
+	
+	
+	
 }
-        
         
 
 
 #Preview {
-    CalculationList()
+		CalculationList()
 }

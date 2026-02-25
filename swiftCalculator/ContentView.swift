@@ -84,23 +84,21 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            
-            NavigationStack {
-                VStack {
-                    HStack{
-                        NavigationLink{
-                                CalculationList()
-                            } label: {
-                                Image(systemName: "arrow.trianglehead.2.clockwise.rotate.90")
-                                    .foregroundStyle(Color.primary)
-									.font(.system(size: 25))
-									.buttonStyle(GlassButtonStyle())
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-						.navigationTitle("Calculator")
-						.padding(.bottom)
-                }
+	NavigationStack {
+		VStack {
+		HStack{
+		NavigationLink{
+				CalculationList()
+						} label: {
+				Image(systemName: "person.badge.clock")
+		.foregroundStyle(Color.primary)
+		.font(.system(size: 25))
+		.buttonStyle(GlassButtonStyle())
+		}
+		}
+		.frame(maxWidth: .infinity, alignment: .leading)
+		.padding(.bottom)
+}
                     
                 
 				
@@ -130,11 +128,10 @@ struct ContentView: View {
      // For each button in the array [buttons] with the id (.self) make a row with a HStack.
      //For each row with the id (.self) with the title in the button (Show the item as the buttom title)
                 // call the handleTap function with the title as input
-                ForEach(buttons, id: \.self) { row in
-                    HStack(spacing: 12) {
-                        ForEach(row, id: \.self) { title in
-                            
-                            
+			ForEach(buttons, id: \.self) { row in
+				HStack(spacing: 12) {
+					ForEach(row, id: \.self) { title in
+
                             Button {
                                     handleTap(title)
                                         } label: {
@@ -169,12 +166,11 @@ struct ContentView: View {
             }
                 .padding()
         }
-            .padding(.horizontal)
                         
-                        .tabItem {
+				.tabItem {
                             Image(systemName: "plus.forwardslash.minus")
                             Text("Calculator")
-                        }
+                          }
                         
                         // Second Tab: Settings
                         SettingsView()

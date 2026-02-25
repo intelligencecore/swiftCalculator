@@ -13,7 +13,7 @@ import WebKit
 struct SettingsView: View {
     
     @State private var showGithubView = false
-    @State private var showIconView = false
+    @State private var showAboutView = false
     var body: some View {
         VStack {
             Text("Version")
@@ -21,7 +21,7 @@ struct SettingsView: View {
                 .bold()
                 .padding(30)
             
-            Text("0.0.8")
+            Text("0.0.10")
                 .font(.largeTitle)
                 .bold()
                 .padding(30)
@@ -48,39 +48,33 @@ struct SettingsView: View {
                 .padding(.bottom,30)
             
             List {
-                Button("App Info") {
-                                    showIconView.toggle()
-                                }
-                .sheet(isPresented: $showIconView) {
-            NavigationStack {
-                        AboutView()
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-            ToolbarItem(placement:
-                .navigationBarTrailing) {
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                .tint(.orange)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                 Button {
-                                        showIconView = false
-                                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                .foregroundStyle(.gray)
-                                    }
-                                }
-                            }
-                
-                
+				
+				
+				
+			//Button to show the 🚀 nice Swift Logo view😎❤️✨
+				Button{
+					showAboutView.toggle()
+				} label: {
+					Label("About", systemImage: "swift")
+				}
+				.foregroundColor(Color.orange)
+				.sheet(isPresented: $showAboutView) {
+					NavigationStack {
+						AboutView()
+					}
+				}
+      
+				
+				
+				
+				
+			// Button to show the Github view
                 Button{
                     showGithubView.toggle()
                 } label: {
                     Label("Github Page", systemImage: "staroflife.circle.fill")
                 }
+				.foregroundStyle(Color("CustomGreen"))
                 .sheet(isPresented: $showGithubView) {
             NavigationStack {
                         WebView(url: URL(string: "https://github.com/intelligencecore/swiftCalculator")!)
@@ -98,7 +92,6 @@ struct SettingsView: View {
                             }
                     }
                 }
-                .tint(.blue)
                 
 //                Button {
 //                    // Reset action
