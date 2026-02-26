@@ -15,8 +15,8 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK:  - Property Wrappers
-    @State private var displayText = 0
-    @State private var firstNumber = 0
+    @State private var displayText = ""
+    @State private var firstNumber = "0"
     @State private var currentOperation: Operation? = nil
 	@State private var calculationHistory: [String] = [] // array to save the results
 
@@ -49,30 +49,12 @@ struct ContentView: View {
     func handleTap(_ button: String) {  //Debug
         switch button {
         case "C", "AC":
-            displayText = 0
-        case "1":
-            displayText = 1
-        case "2":
-            displayText = 2
-        case "3":
-            displayText = 3
-        case "4":
-            displayText = 4
-        case "5":
-            displayText = 5
-        case "6":
-            displayText = 6
-        case "7":
-            displayText = 7
-        case "8":
-            displayText = 8
-        case "9":
-            displayText = 9
-        case "0":
-            displayText = 0
+            displayText = "0"
+			case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0":
+				displayText += button
             
         default:
-            displayText = 0
+            displayText = "0"
         }
     }
 
@@ -85,20 +67,22 @@ struct ContentView: View {
         
         TabView {
 	NavigationStack {
-		VStack {
+
+			
 		HStack{
 		NavigationLink{
 				CalculationList()
 						} label: {
 				Image(systemName: "person.badge.clock")
+								.frame(maxWidth: .infinity, alignment: .leading)
 		.foregroundStyle(Color.primary)
 		.font(.system(size: 25))
 		.buttonStyle(GlassButtonStyle())
+							
 		}
-		}
-		.frame(maxWidth: .infinity, alignment: .leading)
-		.padding(.bottom)
-}
+	}
+		
+
                     
                 
 				
@@ -107,16 +91,17 @@ struct ContentView: View {
 				
 // Screen with digit display (.green when is a psoitive value, .red when is a negative value)
                 VStack(alignment: .trailing){
-                    Text(displayText.formatted())
+                    Text(displayText)
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
                         .frame(width: 385, height: 70, alignment: .trailing)
                         .font(.system(size: 78, weight: .bold))
                         .padding(.trailing, 16)
-                        .foregroundColor(displayText > 0 ? .green : (displayText < 0 ? .red : .gray))
+//                      .foregroundColor(displayText > 0 ? .green : (displayText < 0 ? .red : .gray))
+						.foregroundColor(Color.primary)
                         .background(RoundedRectangle(cornerRadius: 15)
                             .frame(width: 398, height: 100, alignment: .center)
-                            .foregroundStyle(Color.primary)
+							.foregroundStyle(Color(.systemGray6))
                         )
                     
                         .padding(.top, 20)

@@ -24,7 +24,7 @@ struct OpeningAnimation: View {
 		
 		VStack {
 				NavigationStack {
-				Image(systemName: "calculator") // there is no calculator SF symbol
+				Image(systemName: "iphone") // there is no calculator SF symbol
 					
 					
 					.fontWeight(.bold)
