@@ -50,8 +50,8 @@ struct ContentView: View {
         switch button {
         case "C", "AC":
             displayText = "0"
-			case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0":
-				displayText += button
+		case "1", "2", "3", "4", "5", "6", "7", "8", "9", "0":
+			displayText += button
             
         default:
             displayText = "0"
@@ -72,9 +72,9 @@ struct ContentView: View {
 		HStack{
 		NavigationLink{
 				CalculationList()
-						} label: {
+					} label: {
 				Image(systemName: "person.badge.clock")
-								.frame(maxWidth: .infinity, alignment: .leading)
+		.frame(maxWidth: .infinity, alignment: .leading)
 		.foregroundStyle(Color.primary)
 		.font(.system(size: 25))
 		.buttonStyle(GlassButtonStyle())
@@ -82,29 +82,22 @@ struct ContentView: View {
 		}
 	}
 		
-
-                    
-                
-				
-				
-				
-				
+			
 // Screen with digit display (.green when is a psoitive value, .red when is a negative value)
                 VStack(alignment: .trailing){
                     Text(displayText)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.5)
-                        .frame(width: 385, height: 70, alignment: .trailing)
-                        .font(.system(size: 78, weight: .bold))
-                        .padding(.trailing, 16)
-//                      .foregroundColor(displayText > 0 ? .green : (displayText < 0 ? .red : .gray))
-						.foregroundColor(Color.primary)
-                        .background(RoundedRectangle(cornerRadius: 15)
-                            .frame(width: 398, height: 100, alignment: .center)
-							.foregroundStyle(Color(.systemGray6))
+					.lineLimit(1)
+					.minimumScaleFactor(0.5)
+					.frame(width: 385, height: 70, alignment: .trailing)
+					.font(.system(size: 78, weight: .bold))
+					.padding(.trailing, 16)
+//                  .foregroundColor(displayText > 0 ? .green : (displayText < 0 ? .red : .gray))
+					.foregroundColor(Color.primary)
+					.background(RoundedRectangle(cornerRadius: 15)
+					.frame(width: 398, height: 100, alignment: .center)
+					.foregroundStyle(Color(.systemGray6))
                         )
-                    
-                        .padding(.top, 20)
+					.padding(.top, 20)
                 }
                 
                 Spacer()
@@ -113,16 +106,15 @@ struct ContentView: View {
      // For each button in the array [buttons] with the id (.self) make a row with a HStack.
      //For each row with the id (.self) with the title in the button (Show the item as the buttom title)
                 // call the handleTap function with the title as input
-			ForEach(buttons, id: \.self) { row in
+			   ForEach(buttons, id: \.self) { row in
 				HStack(spacing: 12) {
 					ForEach(row, id: \.self) { title in
-
-                            Button {
+										Button {
                                     handleTap(title)
                                         } label: {
                                             // Logic to swap text strings for SF Symbols
-                                            switch title {
-                                            case "Del":
+										switch title {
+										case "Del":
                                                 Image(systemName: "delete.left")
                                                     .font(.system(size: 40))
                                             case "÷":
