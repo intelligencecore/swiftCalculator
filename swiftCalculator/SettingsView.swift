@@ -14,6 +14,8 @@ struct SettingsView: View {
     
     @State private var showGithubView = false
     @State private var showAboutView = false
+	@Binding var whiteColorIndicator: Bool
+	
     var body: some View {
         VStack {
             Text("Version")
@@ -46,11 +48,11 @@ struct SettingsView: View {
                 .padding(.bottom, 20)
                 .shadow(color: .orange.opacity(0.5), radius: 20, y: 10)
                 .padding(.bottom,30)
-            
+			
+			
+            //List of buttons
             List {
-				
-				
-				
+			
 			//Button to show the 🚀 nice Swift Logo view😎❤️✨
 				Button{
 					showAboutView.toggle()
@@ -65,10 +67,7 @@ struct SettingsView: View {
 				}
       
 				
-				
-				
-				
-			// Button to show the Github view
+			// Button to show the Github view with a "X" button
                 Button{
                     showGithubView.toggle()
                 } label: {
@@ -92,7 +91,12 @@ struct SettingsView: View {
                             }
                     }
                 }
-                
+		
+				
+				//Toggle("Change to white", isOn: $whiteColorIndicator) // trying a new concept
+				//Toggle("Other option", isOn: $whiteColorIndicator) // trying a new concept
+			
+				
 //                Button {
 //                    // Reset action
 //                } label: {
@@ -109,5 +113,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+	SettingsView(whiteColorIndicator: .constant(false))
 }
