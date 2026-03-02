@@ -11,10 +11,10 @@ import SwiftUI
 import WebKit
 
 struct SettingsView: View {
-    
+	
     @State private var showGithubView = false
     @State private var showAboutView = false
-	@Binding var whiteColorIndicator: Bool
+	@State private var isGlowing = false
 	
     var body: some View {
         VStack {
@@ -29,26 +29,31 @@ struct SettingsView: View {
                 .padding(30)
         
             Text("ALPHA")
-                .font(.system(size: 80, weight: .heavy))
-                .foregroundColor(.white)
-                .padding(.horizontal, 30)
-                .padding(.vertical, 15)
-                .background(
-                    RoundedRectangle(cornerRadius: 15)
-                .fill(
-            LinearGradient(
-                colors: [.red, .orange],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-                            )
-                        )
-                .shadow(color: .black.opacity(0.3), radius: 10, y: 5)
-                )
-                .rotationEffect(.degrees(-15))
-                .padding(.bottom, 20)
-                .shadow(color: .orange.opacity(0.5), radius: 20, y: 10)
-                .padding(.bottom,30)
+				.font(.system(size: 80, weight: .heavy))
+				.foregroundColor(.white)
+				.padding(.horizontal, 30)
+				.padding(.vertical, 15)
+				.background(
+					RoundedRectangle(cornerRadius: 15)
+						.fill(
+							LinearGradient(
+								colors: [.red, .orange],
+								startPoint: .topLeading,
+								endPoint: .bottomTrailing
+							)
+						)
+						.shadow(color: .orange.opacity(isGlowing ? 0.8 : 0.2), radius: isGlowing ? 30 : 10, y: 5)
+				)
+				.rotationEffect(.degrees(-15))
+				.frame(width: 350, height: 150)
+				.animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: isGlowing)
+				.onAppear {
+					isGlowing = true
+				}
+				.padding(.bottom, 30)
 			
+			
+				
 			
             //List of buttons
             List {
@@ -113,5 +118,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-	SettingsView(whiteColorIndicator: .constant(false))
+	SettingsView()
 }

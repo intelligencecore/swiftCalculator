@@ -8,17 +8,9 @@
 
 import SwiftUI
 
-
-
-
-
 struct OpeningAnimation: View {
 	
-	
-	
-	
-	
-	
+
 	var body: some View {
 		
 		

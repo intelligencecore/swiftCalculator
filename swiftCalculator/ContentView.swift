@@ -8,7 +8,7 @@ import SwiftUI
 // TODO: Make a bar with to show the result of the calculation in the screen ✅
 // TODO: Make a button that saves a list of calculations that the user has done before ✅
 // TODO: Make the numbers from "displayText" available to copy
-// TODO: Make the numbers in the display become slammer (12345678900)
+// TODO: Make the numbers in the display become slammer (12345678900) r✅
 
 
 
@@ -19,7 +19,7 @@ struct ContentView: View {
 	@State private var firstNumber = 0.0
 	@State private var currentOperation: Operation? = nil
 	@State private var calculationHistory: [String] = [] // array to save the results
-	@State private var changeBackround = false
+	
 	
 	
 	
@@ -93,7 +93,7 @@ struct ContentView: View {
 	
 	
 	func operationTapped(_ op: Operation) {
-		firstNumber = Double(displayText) ?? 0    // ← right here
+		firstNumber = Double(displayText) ?? 0
 		currentOperation = op
 		displayText = "0"
 	}
@@ -128,7 +128,7 @@ struct ContentView: View {
 				
 				HStack {
 					NavigationLink {
-						CalculationList()
+						CalculationList(history: $calculationHistory)
 					} label: {
 						Image(systemName: "person.badge.clock")
 							.font(.system(size: 25))
@@ -158,27 +158,7 @@ struct ContentView: View {
 				}
 				
 				Spacer()
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
 					// For each button in the array of buttons make a HStack.
 					// For each button in the array [buttons] with the id (.self) make a row with a HStack.
 					//For each row with the id (.self) with the title in the button (Show the item as the buttom title)
@@ -227,11 +207,11 @@ struct ContentView: View {
 			}
 			
 				// Second Tab: Settings
-			SettingsView(whiteColorIndicator: $changeBackround)
+			SettingsView()
 				.tabItem {
 					Image(systemName: "gear")
 					Text("Settings")
-				}
+			}
 		}
 	}
 }
