@@ -23,7 +23,7 @@ struct SettingsView: View {
                 .bold()
                 .padding(30)
             
-            Text("0.0.10")
+            Text("0.0.12")
                 .font(.largeTitle)
                 .bold()
                 .padding(30)
@@ -39,14 +39,15 @@ struct SettingsView: View {
 							LinearGradient(
 								colors: [.red, .orange],
 								startPoint: .topLeading,
-								endPoint: .bottomTrailing
-							)
+								endPoint: .bottomTrailing)
 						)
-						.shadow(color: .orange.opacity(isGlowing ? 0.8 : 0.2), radius: isGlowing ? 30 : 10, y: 5)
 				)
+				.shadow(color: .orange.opacity(isGlowing ? 0.6 : 0.2), radius: isGlowing ? 10 : 2)
+				.shadow(color: .orange.opacity(isGlowing ? 0.4 : 0.1), radius: isGlowing ? 30 : 5)
+				.shadow(color: .orange.opacity(isGlowing ? 0.3 : 0),   radius: isGlowing ? 60 : 10)
 				.rotationEffect(.degrees(-15))
 				.frame(width: 350, height: 150)
-				.animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: isGlowing)
+				.animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: isGlowing)
 				.onAppear {
 					isGlowing = true
 				}

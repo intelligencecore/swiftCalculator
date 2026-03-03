@@ -1,10 +1,5 @@
 import SwiftUI
 
-//TODO: Add animation to the "Swift Logo"
-
-
-
-
 
 
 struct AboutView: View {
@@ -34,13 +29,13 @@ NavigationStack{
 					)
 				)
 				.frame(width: 800, height: 300) // lock the image in place
-				.shadow(color: .orange.opacity(glowingSwift ? 0.8 : 0.0), radius: 40) // glowing shadow for the swift
+				.shadow(color: .orange.opacity(glowingSwift ? 0.8 : 0.0), radius: 40) // glowing shadow for the swift icon
 				.animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: glowingSwift)
 				.onAppear {
 					glowingSwift = true
 				}
 		}
-		.padding()
+			    .padding()
             Text("The Swift Programming Language")
                 .font(.title2)
                 .bold()

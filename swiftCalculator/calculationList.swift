@@ -11,30 +11,39 @@ struct CalculationList: View {
 	
 	
 	var body: some View {
-		
-		
-			//this list is just a placeholder for now (Soon to be a forEach loop to generate and include the previous results)
 		VStack {
-			
-			ForEach(history, id: \.self){ result in
-				Text(result)
+			ScrollView {
+					// Using spacing: 10 keeps them tight together
+				VStack(spacing: 10) {
+					ForEach(history, id: \.self) { result in
+						Button {
+							UIPasteboard.general.string = result
+						} label: {
+							Text("Result: \(result)")
+								.frame(maxWidth: .infinity, alignment: .leading)
+						}
+						.buttonStyle(.bordered)
+						.textSelection(.enabled)
+						.foregroundColor(Color.white)
+					}
+				}
+				.padding()
 			}
 			
-			Button("Remove all"){
-				history.removeAll()
+			if !history.isEmpty {
+				Button("Remove all") {
+					history.removeAll()
+				}
+				.buttonStyle(GlassButtonStyle())
+				.padding(.bottom, 10)
 			}
-			.buttonStyle(GlassButtonStyle())
-		
 		}
-		
 	}
-	
-	
 	
 }
         
 
 
 #Preview {
-	CalculationList(history: .constant(["1 + 1 = 2"]))
+	CalculationList(history: .constant([""]))
 }

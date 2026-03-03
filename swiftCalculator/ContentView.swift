@@ -1,31 +1,13 @@
 import SwiftUI
 
 
-
-
-// TODO: Make this app the main app that the app will show when the user opens the app ✅
-// TODO: Make an array of buttons in the screen ✅
-// TODO: Make a bar with to show the result of the calculation in the screen ✅
-// TODO: Make a button that saves a list of calculations that the user has done before ✅
-// TODO: Make the numbers from "displayText" available to copy
-// TODO: Make the numbers in the display become slammer (12345678900) r✅
-
-
-
-
 struct ContentView: View {
 		// MARK:  - Property Wrappers
 	@State private var displayText = ""
 	@State private var firstNumber = 0.0
 	@State private var currentOperation: Operation? = nil
 	@State private var calculationHistory: [String] = [] // array to save the results
-	
-	
-	
-	
-	
-	
-	
+
 	// enumeration to use use in the calculations.
 	enum Operation {
 		case add
@@ -47,7 +29,6 @@ struct ContentView: View {
 	
 	
 		// MARK: Button handle tap
-		// function to handle whe the user taps the buttons of the calculator, this is just a mock for now, an implementation wil be done in a later commit.
 	
 	func handleTap(_ button: String) { // has to be debugged
 		switch button {
@@ -115,6 +96,7 @@ struct ContentView: View {
 			case .none:
 				break
 		}
+		calculationHistory.append(displayText) // append the result to the previous calculatiosn that the user made
 	}
 	
 	
@@ -127,34 +109,31 @@ struct ContentView: View {
 				
 				
 				HStack {
-					NavigationLink {
-						CalculationList(history: $calculationHistory)
-					} label: {
-						Image(systemName: "person.badge.clock")
-							.font(.system(size: 25))
-							.foregroundStyle(Color.primary)
+					if !calculationHistory.isEmpty {
+						NavigationLink {
+							CalculationList(history: $calculationHistory)
+						} label: {
+							Image(systemName: "person.badge.clock")
+								.font(.system(size: 25))
+								.foregroundStyle(Color.primary)
+						}
+						.frame(maxWidth: .infinity, alignment: .leading)
+						.padding(.leading)
 					}
 				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-				.padding(.leading)
 				
-				
-				
-					// Screen with digit display (.green when is a psoitive value, .red when is a negative value)
+			
 				VStack(alignment: .trailing){
 					Text(displayText)
+						.textSelection(.enabled)
 						.lineLimit(1)
 						.minimumScaleFactor(0.5)
-						.frame(width: 385, height: 70, alignment: .trailing)
 						.font(.system(size: 78, weight: .bold))
-						.padding(.trailing, 16)
-						//                  .foregroundColor(displayText > 0 ? .green : (displayText < 0 ? .red : .gray))
-						.foregroundColor(Color.primary)
-						.background(RoundedRectangle(cornerRadius: 15)
-							.frame(width: 398, height: 100, alignment: .center)
-							.foregroundStyle(Color(.systemGray6))
-						)
-						.padding(.top, 20)
+						.padding(.horizontal, 20) // Give it space from the edges
+						.frame(maxWidth: .infinity, minHeight: 100, alignment: .trailing) // Grow to fill screen
+						.background(Color(.systemGray6))
+						.cornerRadius(15)
+						.padding(.horizontal)
 				}
 				
 				Spacer()
@@ -181,10 +160,6 @@ struct ContentView: View {
 									case "-":
 										Image(systemName: "minus")
 											.font(.system(size: 40))
-									case "+":
-										Image(systemName: "plus")
-									case "PLACEHOLDER":
-										Text("")
 									default:
 										Text(title)
 								}
