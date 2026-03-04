@@ -14,17 +14,22 @@ struct CalculationList: View {
 		VStack {
 			ScrollView {
 					// Using spacing: 10 keeps them tight together
-				VStack(spacing: 10) {
+		VStack(spacing: 10) {
 					ForEach(history, id: \.self) { result in
 						Button {
 							UIPasteboard.general.string = result
 						} label: {
-							Text("Result: \(result)")
-								.frame(maxWidth: .infinity, alignment: .leading)
+							HStack{
+								Text("Result: \(result)")
+									.textSelection(.enabled)
+									.foregroundColor(Color.primary)
+									.frame(width: 350, height: 50, alignment: .leading)
+							}
 						}
-						.buttonStyle(.bordered)
+					
 						.textSelection(.enabled)
 						.foregroundColor(Color.white)
+						.buttonStyle(GlassButtonStyle())
 					}
 				}
 				.padding()

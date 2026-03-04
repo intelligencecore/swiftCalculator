@@ -106,8 +106,6 @@ struct ContentView: View {
 		
 		TabView {
 			NavigationStack {
-				
-				
 				HStack {
 					if !calculationHistory.isEmpty {
 						NavigationLink {
@@ -117,6 +115,7 @@ struct ContentView: View {
 								.font(.system(size: 25))
 								.foregroundStyle(Color.primary)
 						}
+						.buttonStyle(.glass)
 						.frame(maxWidth: .infinity, alignment: .leading)
 						.padding(.leading)
 					}
@@ -143,7 +142,7 @@ struct ContentView: View {
 					//For each row with the id (.self) with the title in the button (Show the item as the buttom title)
 					// call the handleTap function with the title as input
 				ForEach(buttons, id: \.self) { row in
-					HStack(spacing: 12) {
+					HStack {
 						ForEach(row, id: \.self) { title in
 							Button {
 								handleTap(title)
@@ -152,6 +151,7 @@ struct ContentView: View {
 								switch title {
 									case "Del":
 										Image(systemName: "delete.left")
+											.foregroundColor(Color.red)
 											.font(.system(size: 40))
 									case "÷":
 										Image(systemName: "divide")
@@ -164,8 +164,9 @@ struct ContentView: View {
 										Text(title)
 								}
 							}
-							.frame(width: 75.5, height: 60)
-							.font(.system(size: 50))
+							.buttonStyle(GlassButtonStyle())
+							.frame(width: 80, height: 80)
+							.font(.system(size: 40))
 							.foregroundStyle(Color.primary)
 							
 							
@@ -179,7 +180,9 @@ struct ContentView: View {
 			.tabItem {
 				Image(systemName: "plus.forwardslash.minus")
 				Text("Calculator")
+					.buttonStyle(.glassProminent)
 			}
+			
 			
 				// Second Tab: Settings
 			SettingsView()
