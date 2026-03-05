@@ -1,34 +1,28 @@
-
-
 // TODO: Make the reset button reset the values to 0 when is pressed
-
-
-
-
-
 
 import SwiftUI
 import WebKit
 
 struct SettingsView: View {
-	
-    @State private var showGithubView = false
-    @State private var showAboutView = false
+
+	@State private var showGithubView = false
+	@State private var showAboutView = false
 	@State private var isGlowing = false
-	
-    var body: some View {
-        VStack {
-            Text("Version")
-                .font(.title)
-                .bold()
-                .padding(30)
-            
-            Text("0.0.12")
-                .font(.largeTitle)
-                .bold()
-                .padding(30)
-        
-            Text("ALPHA")
+	@State private var howManytimesUserOpenedApp = 0
+
+	var body: some View {
+		VStack {
+			Text("Version")
+				.font(.title)
+				.bold()
+				.padding(30)
+
+			Text("0.0.12")
+				.font(.largeTitle)
+				.bold()
+				.padding(30)
+
+			Text("ALPHA")
 				.font(.system(size: 80, weight: .heavy))
 				.foregroundColor(.white)
 				.padding(.horizontal, 30)
@@ -37,30 +31,35 @@ struct SettingsView: View {
 					RoundedRectangle(cornerRadius: 15)
 						.fill(
 							LinearGradient(
-								colors: [.red, .orange],
+								colors: [.white, .blue],
 								startPoint: .topLeading,
-								endPoint: .bottomTrailing)
+								endPoint: .bottomTrailing
+							)
 						)
+						.animation(
+							.easeInOut(duration: 0.5).repeatForever(
+								autoreverses: true
+							),
+							value: isGlowing
+						)
+						.onAppear {
+							isGlowing = true
+						}
 				)
-				.shadow(color: .orange.opacity(isGlowing ? 0.6 : 0.2), radius: isGlowing ? 10 : 2)
-				.shadow(color: .orange.opacity(isGlowing ? 0.4 : 0.1), radius: isGlowing ? 30 : 5)
-				.shadow(color: .orange.opacity(isGlowing ? 0.3 : 0),   radius: isGlowing ? 60 : 10)
+				.shadow(
+					color: .blue.opacity(isGlowing ? 1000 : 0),
+					radius: isGlowing ? 60 : 100
+				)
 				.rotationEffect(.degrees(-15))
 				.frame(width: 350, height: 150)
-				.animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: isGlowing)
-				.onAppear {
-					isGlowing = true
-				}
+
 				.padding(.bottom, 30)
-			
-			
-				
-			
-            //List of buttons
-            List {
-			
-			//Button to show the 🚀 nice Swift Logo view😎❤️✨
-				Button{
+
+			//List of buttons
+			List {
+
+				//Button to show the 🚀 nice Swift Logo view😎❤️✨
+				Button {
 					showAboutView.toggle()
 				} label: {
 					Label("About", systemImage: "swift")
@@ -71,51 +70,55 @@ struct SettingsView: View {
 						AboutView()
 					}
 				}
-      
-				
-			// Button to show the Github view with a "X" button
-                Button{
-                    showGithubView.toggle()
-                } label: {
-                    Label("Github Page", systemImage: "staroflife.circle.fill")
-                }
+
+				//Button to enable haptic feedback on calculations
+
+				// Button to show the Github view with a "X" button
+				Button {
+					showGithubView.toggle()
+				} label: {
+					Label("Github Page", systemImage: "cat")
+				}
 				.foregroundStyle(Color("CustomGreen"))
-                .sheet(isPresented: $showGithubView) {
-            NavigationStack {
-                        WebView(url: URL(string: "https://github.com/intelligencecore/swiftCalculator")!)
-                .navigationTitle("GitHub")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-             ToolbarItem(placement: .navigationBarTrailing) {
-                 Button {
-                                        showGithubView = false
-                                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                .foregroundStyle(.gray)
-                                    }
-                                }
-                            }
-                    }
-                }
-		
-				
-				//Toggle("Change to white", isOn: $whiteColorIndicator) // trying a new concept
-				//Toggle("Other option", isOn: $whiteColorIndicator) // trying a new concept
+				.sheet(isPresented: $showGithubView) {
+					NavigationStack {
+						WebView(
+							url: URL(
+								string:
+									"https://github.com/intelligencecore/swiftCalculator"
+							)!
+						)
+						.navigationTitle("GitHub")
+						.navigationBarTitleDisplayMode(.inline)
+						.toolbar {
+							ToolbarItem(placement: .navigationBarTrailing) {
+								Button {
+									showGithubView = false
+								} label: {
+									Image(systemName: "xmark.circle.fill")
+										.foregroundStyle(.gray)
+								}
+							}
+						}
+					}
+				}
+			}
+			.scrollContentBackground(.automatic)
+			.background(.ultraThinMaterial)
+			.cornerRadius(20)
+			.padding()
 			
-				
-//                Button {
-//                    // Reset action
-//                } label: {
-//                    Label("Reset to default", systemImage: "exclamationmark.arrow.trianglehead.counterclockwise.rotate.90")
-//                }
-//                .foregroundStyle(.red)
-            }
-            .scrollContentBackground(.hidden)
-            .background(.ultraThinMaterial)
-            .cornerRadius(20)
-            .padding()
-        }
-    }
+
+			HStack {
+				Text("User has opened the app: \(howManytimesUserOpenedApp)")
+			}
+			
+			
+			
+			
+		}
+		
+	}
 }
 
 #Preview {
