@@ -21,25 +21,33 @@ struct OpeningAnimation: View {
 	var body: some View {
 		ZStack {
 			if currentState == .launching {
-					// Your Animation View
+				
 				VStack {
-					Image(systemName: "swift")
+					Image(systemName: "plus.forwardslash.minus")
 						.font(.system(size: 100))
 						.foregroundStyle(.orange)
-						.scaleEffect(logoScale)
-						.opacity(logoOpacity)
+						
+					
+						Text("A Swifty Calculator!")
+							.font(.system(size: 20))
+							.padding(.bottom, 80)
+							.bold()
 				}
+				.scaleEffect(logoScale)
+				.opacity(logoOpacity)
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.background(Color.black)
 				.onAppear {
 						// Start the opening animation
-					withAnimation(.spring(duration: 1.0, bounce: 0.5)) {
+					withAnimation(.spring(duration: 1.0, bounce: 1.5)) {
 						logoScale = 1.0
-						logoOpacity = 1.0
+						logoOpacity = 0.9
 					}
 					
+					
+					
 						// Transition to main app after 2 seconds
-					DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+					DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 						withAnimation(.easeOut(duration: 0.5)) {
 							currentState = .active
 						}

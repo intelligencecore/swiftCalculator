@@ -17,7 +17,7 @@ struct SettingsView: View {
 				.bold()
 				.padding(30)
 
-			Text("0.0.12")
+			Text("0.0.14")
 				.font(.largeTitle)
 				.bold()
 				.padding(30)
@@ -29,22 +29,22 @@ struct SettingsView: View {
 				.padding(.vertical, 15)
 				.background(
 					RoundedRectangle(cornerRadius: 15)
-						.fill(
-							LinearGradient(
-								colors: [.white, .blue],
-								startPoint: .topLeading,
-								endPoint: .bottomTrailing
-							)
-						)
-						.animation(
-							.easeInOut(duration: 0.5).repeatForever(
+				.fill(
+					  LinearGradient(
+					  colors: [.white, .blue],
+					  startPoint: .topLeading,
+					  endPoint: .bottomTrailing
+					)
+					)
+				.animation(
+				.easeInOut(duration: 0.5).repeatForever(
 								autoreverses: true
-							),
+					),
 							value: isGlowing
-						)
-						.onAppear {
+					)
+				.onAppear {
 							isGlowing = true
-						}
+						  }
 				)
 				.shadow(
 					color: .blue.opacity(isGlowing ? 1000 : 0),
@@ -54,6 +54,8 @@ struct SettingsView: View {
 				.frame(width: 350, height: 150)
 
 				.padding(.bottom, 30)
+			
+			
 
 			//List of buttons
 			List {
@@ -88,36 +90,27 @@ struct SettingsView: View {
 									"https://github.com/intelligencecore/swiftCalculator"
 							)!
 						)
-						.navigationTitle("GitHub")
-						.navigationBarTitleDisplayMode(.inline)
-						.toolbar {
+				.navigationTitle("GitHub")
+				.navigationBarTitleDisplayMode(.inline)
+				.toolbar {
 							ToolbarItem(placement: .navigationBarTrailing) {
 								Button {
 									showGithubView = false
 								} label: {
 									Image(systemName: "xmark.circle.fill")
-										.foregroundStyle(.gray)
+				 .foregroundStyle(.gray)
 								}
 							}
 						}
 					}
 				}
 			}
-			.scrollContentBackground(.automatic)
-			.background(.ultraThinMaterial)
-			.cornerRadius(20)
-			.padding()
-			
-
-			HStack {
-				Text("User has opened the app: \(howManytimesUserOpenedApp)")
-			}
-			
-			
-			
-			
+				.scrollContentBackground(.automatic)
+			    .background(.ultraThinMaterial)
+			    .cornerRadius(20)
+			    .padding()
 		}
-		
+
 	}
 }
 

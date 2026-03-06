@@ -7,6 +7,7 @@ struct ContentView: View {
 	@State private var currentOperation: Operation? = nil
 	@State private var calculationHistory: [String] = []  // array to save the results
 
+
 	// enumeration to use use in the calculations.
 	enum Operation {
 		case add
@@ -73,23 +74,36 @@ struct ContentView: View {
 		displayText = "0"
 	}
 
+	// function to format the result
+	func formatResult(_ number: Double) -> String {
+		if number == number.rounded() && !number.isInfinite {
+			return String(Int(number))
+		}
+		return String(number)
+	}
+
 	// function  to handle when the equal button is pressed
 	func equalsTapped() {
 		let secondNumber = Double(displayText) ?? 0
 
 		switch currentOperation {
 		case .add:
-			displayText = "\(firstNumber + secondNumber)"
+			displayText = formatResult(firstNumber + secondNumber)
 		case .subtract:
-			displayText = "\(firstNumber - secondNumber)"
+			displayText = formatResult(firstNumber - secondNumber)
 		case .multiply:
-			displayText = "\(firstNumber * secondNumber)"
+			displayText = formatResult(firstNumber * secondNumber)
 		case .divide:
-			displayText = "\(firstNumber / secondNumber)"
+			if secondNumber == 0 {
+				displayText = "Error"
+			} else {
+				displayText = formatResult(firstNumber / secondNumber)
+			}
 		case .none:
 			break
 		}
-		calculationHistory.append(displayText)  // append the result to the previous calculatiosn that the user made
+
+		calculationHistory.append(displayText)
 	}
 
 	var body: some View {
@@ -134,6 +148,7 @@ struct ContentView: View {
 				// For each button in the array [buttons] with the id (.self) make a row with a HStack.
 				//For each row with the id (.self) with the title in the button (Show the item as the buttom title)
 				// call the handleTap function with the title as input
+
 				ForEach(buttons, id: \.self) { row in
 					HStack {
 						ForEach(row, id: \.self) { title in
@@ -145,20 +160,21 @@ struct ContentView: View {
 								case "Del":
 									Image(systemName: "delete.left")
 										.foregroundColor(Color.red)
-										.font(.system(size: 40))
 								case "÷":
 									Image(systemName: "divide")
 								case "×":
 									Image(systemName: "multiply")
 								case "-":
 									Image(systemName: "minus")
-										.font(.system(size: 40))
 								default:
 									Text(title)
 								}
 							}
 							.buttonStyle(GlassButtonStyle())
-							.frame(width: title == "=" ? 172 : 80, height: 80)
+							.frame(
+								maxWidth: (title == "=" || title == "0")
+									? .infinity : 80
+							)
 							.font(.system(size: 40))
 							.foregroundStyle(Color.primary)
 
