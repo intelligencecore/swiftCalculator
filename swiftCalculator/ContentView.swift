@@ -116,8 +116,8 @@ struct ContentView: View {
 							CalculationList(history: $calculationHistory)
 						} label: {
 							Image(systemName: "person.badge.clock")
-								.font(.system(size: 25))
-								.foregroundStyle(Color.primary)
+						.font(.system(size: 25))
+						.foregroundStyle(Color.primary)
 						}
 						.buttonStyle(.glass)
 						.frame(maxWidth: .infinity, alignment: .leading)
@@ -184,21 +184,26 @@ struct ContentView: View {
 				.padding()
 			}
 
-			.tabItem {
+			                .tabItem {
 				Image(systemName: "plus.forwardslash.minus")
 				Text("Calculator")
-					.buttonStyle(.glassProminent)
+							.buttonStyle(.glassProminent)
 			}
 
 			// Second Tab: Settings
 			SettingsView()
-				.tabItem {
+						.tabItem {
 					Image(systemName: "gear")
 					Text("Settings")
-				}
+				                  }
 		}
 	}
 }
+
+
+
+
+
 
 #Preview {
 	ContentView()

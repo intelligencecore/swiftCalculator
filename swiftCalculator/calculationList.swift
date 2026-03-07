@@ -17,13 +17,13 @@ struct CalculationList: View {
 						} label: {
 							HStack {
 								Text("Result: \(result)")
-									.textSelection(.enabled)
-									.foregroundColor(Color.primary)
-									.frame(
-										width: 350,
-										height: 50,
-										alignment: .leading
-									)
+						.textSelection(.enabled)
+						.foregroundColor(Color.primary)
+						.frame(
+								width: 350,
+								height: 50,
+								alignment: .leading
+							   )
 							}
 						}
 
@@ -39,14 +39,20 @@ struct CalculationList: View {
 				Button("Remove all") {
 					history.removeAll()
 				}
-				.buttonStyle(GlassButtonStyle())
-				.padding(.bottom, 10)
-				.tint(Color.red)
+						.buttonStyle(GlassButtonStyle())
+				        .padding(.bottom, 10)
+				        .tint(Color.red)
 			}
 		}
 	}
 
 }
+
+
+
+
+
+
 
 #Preview {
 	CalculationList(history: .constant([""]))
