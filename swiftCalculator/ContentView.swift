@@ -111,7 +111,6 @@ struct ContentView: View {
 		TabView {
 			NavigationStack {
 				HStack {
-					if !calculationHistory.isEmpty {
 						NavigationLink {
 							CalculationList(history: $calculationHistory)
 						} label: {
@@ -122,7 +121,7 @@ struct ContentView: View {
 						.buttonStyle(.glass)
 						.frame(maxWidth: .infinity, alignment: .leading)
 						.padding(.leading)
-					}
+					
 				}
 
 				VStack(alignment: .trailing) {

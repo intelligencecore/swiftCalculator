@@ -67,3 +67,4 @@ struct OpeningAnimation: View {
 #Preview {
 OpeningAnimation()
 }
+
