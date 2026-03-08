@@ -14,10 +14,20 @@ class CalculatorTests: XCTestCase {
 		
 			// your tests here
 		
-		
+	}
+	
+	
+	
+	
 		func testDiplayOutput() {
 			
+			
 		}
+	
+	
+	
+	func testOperation(){
+		
 		
 	}
 }
