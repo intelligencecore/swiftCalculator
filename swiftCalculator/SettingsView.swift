@@ -17,7 +17,7 @@ struct SettingsView: View {
 				.bold()
 				.padding(30)
 
-			Text("0.0.14")
+			Text("0.0.15")
 				.font(.largeTitle)
 				.bold()
 				.padding(30)
