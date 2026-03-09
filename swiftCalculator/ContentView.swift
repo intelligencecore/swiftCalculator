@@ -6,7 +6,7 @@ struct ContentView: View {
 	@State private var firstNumber = 0.0
 	@State private var currentOperation: Operation? = nil
 	@State private var calculationHistory: [String] = []  // array to save the results
-
+	@State private var dividingByZero = false
 
 	// enumeration to use use in the calculations.
 	enum Operation {
@@ -96,21 +96,28 @@ struct ContentView: View {
 		case .divide:
 			if secondNumber == 0 {
 				displayText = "Error"
+				dividingByZero = true
 			} else {
 				displayText = formatResult(firstNumber / secondNumber)
 			}
 		case .none:
 			break
 		}
-
 		calculationHistory.append(displayText)
 	}
+	
+	
+	
+	
 
 	var body: some View {
 
 		TabView {
 			NavigationStack {
 				HStack {
+					
+					
+					
 						NavigationLink {
 							CalculationList(history: $calculationHistory)
 						} label: {
@@ -181,6 +188,12 @@ struct ContentView: View {
 					}
 				}
 				.padding()
+			}
+			
+			.alert("Cannot Divide by Zero", isPresented: $dividingByZero) {
+				Button("OK") { }
+			} message: {
+				Text("Division by zero is not allowed.")
 			}
 
 			                .tabItem {
