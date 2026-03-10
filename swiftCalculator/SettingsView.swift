@@ -17,7 +17,7 @@ struct SettingsView: View {
 				.bold()
 				.padding(30)
 
-			Text("0.0.15")
+			Text("0.0.16")
 				.font(.largeTitle)
 				.bold()
 				.padding(30)
@@ -75,7 +75,7 @@ struct SettingsView: View {
 
 				//Button to enable haptic feedback on calculations
 
-				// Button to show the Github view with a "X" button
+				// Button to show the Github view with a "X" button on the view
 				Button {
 					showGithubView.toggle()
 				} label: {
