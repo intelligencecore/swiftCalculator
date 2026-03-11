@@ -103,7 +103,9 @@ struct ContentView: View {
 		case .none:
 			break
 		}
-		calculationHistory.append(displayText)
+		if displayText != "Error" {
+			calculationHistory.append(displayText)
+		}
 	}
 	
 	
