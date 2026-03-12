@@ -53,6 +53,8 @@ struct ContentView: View {
 			operationTapped(.subtract)
 		case "×":
 			operationTapped(.multiply)
+			case "%":
+				displayText = formatResult(( Double(displayText) ?? 0.0 ) / 100 ) // im case the user press percent, lets make displayText to be the result formated (formatResult) to whatever is inside displayText if there is value inside, then divide by 100
 		case "÷":
 			operationTapped(.divide)
 		case "=":
@@ -103,6 +105,7 @@ struct ContentView: View {
 		case .none:
 			break
 		}
+		// check if there is no string in the result and then append to the results [string]
 		if displayText != "Error" {
 			calculationHistory.append(displayText)
 		}
@@ -193,7 +196,7 @@ struct ContentView: View {
 			}
 			
 			.alert("Cannot Divide by Zero", isPresented: $dividingByZero) {
-				Button("OK") { }
+				Button("OK") { displayText = "0"}
 			} message: {
 				Text("Division by zero is not allowed.")
 			}
