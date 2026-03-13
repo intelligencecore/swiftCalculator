@@ -201,7 +201,7 @@ struct ContentView: View {
 				Text("Division by zero is not allowed.")
 			}
 
-			                .tabItem {
+			.tabItem {
 				Image(systemName: "plus.forwardslash.minus")
 				Text("Calculator")
 							.buttonStyle(.glassProminent)

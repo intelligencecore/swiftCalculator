@@ -46,8 +46,8 @@ struct OpeningAnimation: View {
 					
 					
 					
-						// Transition to main app after 2 seconds
-					DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+						// Transition to main app after 0.5 seconds
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 						withAnimation(.easeOut(duration: 0.5)) {
 							currentState = .active
 						}

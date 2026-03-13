@@ -11,48 +11,52 @@ struct CalculationList: View {
 			ScrollView {
 				// Using spacing: 10 keeps them tight together
 				VStack(spacing: 10) {
-					ForEach(history, id: \.self) { result in
-						Button {
-							UIPasteboard.general.string = result
-						} label: {
-							HStack {
-								Text("Result: \(result)")
-						.textSelection(.enabled)
-						.foregroundColor(Color.primary)
-						.frame(
-								width: 350,
-								height: 50,
-								alignment: .leading
-							   )
+					
+					
+					if history.isEmpty {
+					Text("Nothing to see here...")
+					} else {
+						ForEach(history, id: \.self) { result in
+							Button {
+								UIPasteboard.general.string = result
+							} label: {
+								HStack {
+									
+									
+									Text("Result: \(result)")
+										.textSelection(.enabled)
+										.foregroundColor(Color.primary)
+										.textSelection(.enabled)
+										.frame(
+											width: 350,
+											height: 50,
+											alignment: .leading
+										)
+								}
 							}
+							
 						}
-
-						.textSelection(.enabled)
-						.foregroundColor(Color.white)
 						.buttonStyle(GlassButtonStyle())
+						
+						
+						
 					}
-				}
-				.padding()
-			}
 
-			if !history.isEmpty {
-				Button("Remove all") {
-					history.removeAll()
 				}
-						.buttonStyle(GlassButtonStyle())
-				        .padding(.bottom, 10)
-				        .tint(Color.red)
 			}
+			.padding()
+		}
+
+		if !history.isEmpty {
+			Button("Remove all") {
+				history.removeAll()
+			}
+			.buttonStyle(GlassButtonStyle())
+			.padding(.bottom, 10)
+			.tint(Color.red)
 		}
 	}
-
 }
-
-
-
-
-
-
 
 #Preview {
 	CalculationList(history: .constant([""]))
