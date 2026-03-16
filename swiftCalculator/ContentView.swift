@@ -115,7 +115,7 @@ struct ContentView: View {
 		TabView {
 			NavigationStack {
 				VStack {
-					HStack {
+					ZStack {
 						Button {
 							showCalculationsheet.toggle()
 						} label: {
@@ -128,6 +128,7 @@ struct ContentView: View {
 						.padding(.leading)
 						.sheet(isPresented: $showCalculationsheet) {
 							CalculationList(history: $calculationHistory)
+							//	.glassEffect()
 						}
 					}
 					
