@@ -9,6 +9,7 @@ struct SettingsView: View {
 	@State private var showAboutView = false
 	@State private var isGlowing = false
 	@State private var howManytimesUserOpenedApp = 0
+	@Binding var hapticFeedback: Bool
 
 	var body: some View {
 		VStack {
@@ -104,16 +105,30 @@ struct SettingsView: View {
 						}
 					}
 				}
+				
+				
 			}
 				.scrollContentBackground(.automatic)
 			    .background(.ultraThinMaterial)
 			    .cornerRadius(20)
 			    .padding()
+				.sensoryFeedback(.impact, trigger: 1)
+			
+			
+			
+			VStack{
+				Toggle(isOn: $hapticFeedback){
+					Label("Haptic Feedback", systemImage: "command")
+						
+					}
+				}
+			.padding()
 		}
 
 	}
 }
 
 #Preview {
-	SettingsView()
+	@Previewable @State var tempHaptic = false
+	SettingsView(hapticFeedback: $tempHaptic)
 }

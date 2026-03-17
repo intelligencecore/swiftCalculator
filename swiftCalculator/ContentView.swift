@@ -9,6 +9,8 @@ struct ContentView: View {
 	@State private var calculationHistory: [String] = []
 	@State private var dividingByZero = false
 	@State private var showCalculationsheet: Bool = false
+	@State private var hapticBinding = false
+	@State private var buttonTaps = 0
 	
 		// enumeration to use use in the calculations.
 	enum Operation {
@@ -29,6 +31,15 @@ struct ContentView: View {
 	
 		// MARK: Button handle tap
 	func handleTap(_ button: String) {
+		
+		
+		//Add haptic feedback to the buttons
+			if hapticBinding {  // ← Is hapticBinding true? NO!
+				buttonTaps += 1  // ← This line does NOT run!
+			}
+			
+			
+		
 		switch button {
 			case "C", "AC":
 				displayText = "0"
@@ -178,6 +189,7 @@ struct ContentView: View {
 								)
 								.font(.system(size: 40))
 								.foregroundStyle(Color.primary)
+								.sensoryFeedback(.impact, trigger: buttonTaps)
 							}
 						}
 					}
@@ -194,7 +206,8 @@ struct ContentView: View {
 				Text("Calculator")
 			}
 			
-			SettingsView()
+			
+			SettingsView(hapticFeedback: $hapticBinding)
 				.tabItem {
 					Image(systemName: "gear")
 					Text("Settings")
