@@ -1,33 +1,15 @@
 import XCTest
 
-
-
 @testable import swiftCalculator
 
-
-
-
-
-
 class CalculatorTests: XCTestCase {
-	func testFormatResult() {
+
+	func testAdd(){
+
+		let model = swiftCalculatorApp()
 		
-			// your tests here
-		
-	}
-	
-	
-	
-	
-		func testDiplayOutput() {
-			
-			
-		}
-	
-	
-	
-	func testOperation(){
 		
 		
 	}
 }
+

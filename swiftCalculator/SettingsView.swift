@@ -18,25 +18,33 @@ struct SettingsView: View {
 				.bold()
 				.padding(30)
 
-			Text("0.0.19")
+			Text("0.0.21")
 				.font(.largeTitle)
 				.bold()
 				.padding(30)
 
-			Text("ALPHA")
+			Text("BETA")
 				.font(.system(size: 80, weight: .heavy))
 				.foregroundColor(.white)
 				.padding(.horizontal, 30)
 				.padding(.vertical, 15)
+				.shadow(
+					color: .orange.opacity(isGlowing ? 100 : 0),
+					radius: isGlowing ? 50 : 100
+				)
 				.background(
 					RoundedRectangle(cornerRadius: 15)
 				.fill(
 					  LinearGradient(
-					  colors: [.white, .blue],
+					  colors: [.orange, .orange],
 					  startPoint: .topLeading,
 					  endPoint: .bottomTrailing
 					)
 					)
+				.shadow(
+					color: .orange.opacity(isGlowing ? 100 : 0),
+					radius: isGlowing ? 50 : 100
+				)
 				.animation(
 				.easeInOut(duration: 0.5).repeatForever(
 								autoreverses: true
@@ -46,10 +54,6 @@ struct SettingsView: View {
 				.onAppear {
 							isGlowing = true
 						  }
-				)
-				.shadow(
-					color: .blue.opacity(isGlowing ? 1000 : 0),
-					radius: isGlowing ? 60 : 100
 				)
 				.rotationEffect(.degrees(-15))
 				.frame(width: 350, height: 150)
