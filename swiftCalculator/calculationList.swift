@@ -9,7 +9,7 @@ struct CalculationList: View {
 	var body: some View {
 		VStack {
 			ScrollView {
-				VStack(spacing: 10) {
+				VStack(spacing: 5) {
 					if history.isEmpty {
 						Text("You havent made any calculations yet...")
 							.padding(.top, 50)
@@ -20,9 +20,10 @@ struct CalculationList: View {
 							} label: {
 								HStack {
 									Text("Result: \(result)")
-										.foregroundColor(Color.primary)
-										.frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
-										.padding(.horizontal)
+									.foregroundColor(Color.primary)
+									.buttonBorderShape(.buttonBorder)
+									.frame(maxWidth: 280, minHeight: 50, alignment: .leading)
+									.padding(.horizontal)
 								}
 							}
 						}
