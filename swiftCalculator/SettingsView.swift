@@ -55,7 +55,7 @@ struct SettingsView: View {
 							isGlowing = true
 						  }
 				)
-				.rotationEffect(.degrees(-15))
+				.rotationEffect(.degrees(-25))
 				.frame(width: 350, height: 150)
 
 				.padding(.bottom, 30)
@@ -64,7 +64,6 @@ struct SettingsView: View {
 
 			//List of buttons
 			List {
-
 				//Button to show the 🚀 nice Swift Logo view😎❤️✨
 				Button {
 					showAboutView.toggle()
@@ -77,7 +76,7 @@ struct SettingsView: View {
 						AboutView()
 					}
 				}
-
+				
 				//Button to enable haptic feedback on calculations
 
 				// Button to show the Github view with a "X" button on the view
@@ -109,14 +108,14 @@ struct SettingsView: View {
 						}
 					}
 				}
-				
-				
 			}
 				.scrollContentBackground(.automatic)
 			    .background(.ultraThinMaterial)
 			    .cornerRadius(20)
 			    .padding()
 				.sensoryFeedback(.impact, trigger: 1)
+			
+			
 			
 			
 			

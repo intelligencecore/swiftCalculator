@@ -20,7 +20,7 @@ struct ContentView: View {
 		TabView {
 			NavigationStack {
 				VStack {
-					ZStack {
+					HStack {
 						Button {
 							showCalculationsheet.toggle()
 						} label: {
@@ -35,10 +35,32 @@ struct ContentView: View {
 							CalculationList(
 								history: $viewModel.calculationHistory
 							)
-							//	.glassEffect()
+			
 						}
+						
+						
+						
+						
+						Button {
+							// show other sheet for currency exchange
+							print("Button pressed! opening...")
+						} label: {
+							Image(systemName: "phone")
+								.font(.system(size: 25))
+								.foregroundStyle(Color.primary)
+						}
+						.buttonStyle(.glass)
+						.frame(maxWidth: .infinity, alignment: .trailing)
+						.padding(.trailing)
 					}
 
+					
+					
+					
+					
+					
+					
+					
 					VStack(alignment: .trailing) {
 						Text(viewModel.displayText)
 
@@ -60,7 +82,9 @@ struct ContentView: View {
 							dividingByZero = true
 						}
 					}
-					.sensoryFeedback(.error, trigger: dividingByZero) { oldValue, newValue in
+					.sensoryFeedback(.error, trigger: dividingByZero) {
+						oldValue,
+						newValue in
 						newValue == true
 					}
 					.padding(.horizontal)

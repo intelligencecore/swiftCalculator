@@ -14,7 +14,7 @@ enum AppState {
 }
 
 struct OpeningAnimation: View {
-	@State private var currentState: AppState = .launching
+	@State private var currentState: AppState = .launching // checking the app state to make sure that the animation is not shown when is not needed
 	@State private var logoScale = 0.5
 	@State private var logoOpacity = 0.0
 	
