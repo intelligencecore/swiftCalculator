@@ -11,7 +11,8 @@ struct CalculationList: View {
 			ScrollView {
 				VStack(spacing: 5) {
 					if history.isEmpty {
-						Text("You havent made any calculations yet...")
+						Text("You haven't made any calculations yet...")
+							.bold()
 							.padding(.top, 50)
 					} else {
 						ForEach(history, id: \.self) { result in

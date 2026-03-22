@@ -45,12 +45,7 @@ struct SettingsView: View {
 					color: .orange.opacity(isGlowing ? 100 : 0),
 					radius: isGlowing ? 50 : 100
 				)
-				.animation(
-				.easeInOut(duration: 0.5).repeatForever(
-								autoreverses: true
-					),
-							value: isGlowing
-					)
+				
 				.onAppear {
 							isGlowing = true
 						  }

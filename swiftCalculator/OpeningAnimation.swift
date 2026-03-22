@@ -28,7 +28,7 @@ struct OpeningAnimation: View {
 						.foregroundStyle(.orange)
 						
 					
-						Text("A Swifty Calculator!")
+						Text("A Swiftly Calculator!")
 							.font(.system(size: 20))
 							.padding(.bottom, 80)
 							.bold()
@@ -48,7 +48,7 @@ struct OpeningAnimation: View {
 					
 						// Transition to main app after 0.5 seconds
 					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-						withAnimation(.easeOut(duration: 0.5)) {
+						withAnimation(.easeOut(duration: 0.3)) {
 							currentState = .active
 						}
 					}
