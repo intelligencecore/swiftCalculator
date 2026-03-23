@@ -35,17 +35,14 @@ struct ContentView: View {
 							CalculationList(
 								history: $viewModel.calculationHistory
 							)
-			
+
 						}
-						
-						
-						
-						
+
 						Button {
 							// show other sheet for currency exchange
 							print("Button pressed! opening...")
 						} label: {
-							Image(systemName: "phone")
+							Image(systemName: "dollarsign.arrow.trianglehead.counterclockwise.rotate.90")
 								.font(.system(size: 25))
 								.foregroundStyle(Color.primary)
 						}
@@ -54,13 +51,6 @@ struct ContentView: View {
 						.padding(.trailing)
 					}
 
-					
-					
-					
-					
-					
-					
-					
 					VStack(alignment: .trailing) {
 						Text(viewModel.displayText)
 
