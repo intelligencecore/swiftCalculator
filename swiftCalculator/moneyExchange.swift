@@ -28,7 +28,8 @@ struct MoneyExchange: View {
 				
 			}
 		}
-		.background(Color.blue)
+		.frame(width: 1000, height: 1000)
+		.background(Color.white)
 		}
 	}
 
