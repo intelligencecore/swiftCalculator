@@ -25,13 +25,29 @@ struct MoneyExchange: View {
 				Button("Euro"){
 						// calculation
 				}
-				
+			
+					
+				}
 			}
+	
+		Spacer()
+		VStack{
+			Menu("Select Currency"){
+				Button("American Dollar"){
+						// calculation
+				}
+				Button("Canadian Dollar"){
+						// calculation
+				}
+				Button("Euro"){
+						// calculation
+				}
+			}
+			
 		}
-		.frame(width: 1000, height: 1000)
-		.background(Color.white)
 		}
-	}
+		}
+	
 
 
 #Preview {
