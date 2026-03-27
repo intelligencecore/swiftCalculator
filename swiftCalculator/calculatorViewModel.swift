@@ -8,6 +8,7 @@ class CalculatorViewModel: ObservableObject {
 	@Published var calculationHistory: [String] = []
 	
 	
+	
 	//enum for the operation
 	enum Operation {
 		case add
