@@ -6,6 +6,10 @@ struct MoneyExchange: View {
 	var body: some View {
 		VStack {
 
+			
+			Text("Money Exchange")
+				.bold()
+			
 			Menu("Select Currency") {
 				Button("American Dollar") {
 					// calculation
@@ -39,8 +43,8 @@ struct MoneyExchange: View {
 
 		}
 		.padding(.bottom, 500)
-		
 	}
+		
 }
 
 #Preview {
