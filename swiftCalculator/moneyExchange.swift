@@ -6,7 +6,7 @@ struct MoneyExchange: View {
 	var body: some View {
 		VStack {
 
-			
+			// add api to check n real time the exchange of money
 			Text("Money Exchange")
 				.bold()
 			
