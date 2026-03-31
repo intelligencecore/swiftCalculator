@@ -37,7 +37,7 @@ struct ContentView: View {
 						} label: {
 							Image(
 								systemName:
-									"dollarsign.arrow.trianglehead.counterclockwise.rotate.90"
+									"dollarsign"
 							)
 							.font(.system(size: 25))
 							.foregroundStyle(Color.primary)

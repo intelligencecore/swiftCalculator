@@ -19,6 +19,7 @@ struct MoneyExchange: View {
 				}
 				Button("Euro") {
 					// calculation
+					
 				}
 
 			}
