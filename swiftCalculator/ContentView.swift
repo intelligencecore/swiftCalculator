@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-		// MARK: - Property Wrappers
+	// MARK: - Property Wrappers
 	@State private var dividingByZero = false
 	@State private var showCalculationsheet: Bool = false
 	@State private var hapticBinding = false
@@ -15,7 +15,7 @@ struct ContentView: View {
 		["1", "2", "3", "+"],
 		["0", ".", "="],
 	]
-	
+
 	var body: some View {
 		TabView {
 			NavigationStack {
@@ -31,7 +31,7 @@ struct ContentView: View {
 						.buttonStyle(.glass)
 						.frame(maxWidth: .infinity, alignment: .leading)
 						.padding(.leading)
-						
+
 						Button {
 							showMoneyExchange = true
 						} label: {
@@ -46,7 +46,7 @@ struct ContentView: View {
 						.frame(maxWidth: .infinity, alignment: .trailing)
 						.padding(.trailing)
 					}
-					
+
 					VStack(alignment: .trailing) {
 						Text(viewModel.displayText)
 							.textSelection(.enabled)
@@ -63,19 +63,21 @@ struct ContentView: View {
 							.cornerRadius(15)
 					}
 					.onChange(of: viewModel.displayText) {
-						oldValue, newValue in
+						oldValue,
+						newValue in
 						if newValue == "Error" {
 							dividingByZero = true
 						}
 					}
 					.sensoryFeedback(.error, trigger: dividingByZero) {
-						oldValue, newValue in
+						oldValue,
+						newValue in
 						newValue == true
 					}
 					.padding(.horizontal)
-					
+
 					Spacer()
-					
+
 					ForEach(buttons, id: \.self) { row in
 						HStack {
 							ForEach(row, id: \.self) { title in
@@ -88,23 +90,23 @@ struct ContentView: View {
 									}
 								} label: {
 									switch title {
-										case "Del":
-											Image(systemName: "delete.left")
-												.foregroundColor(Color.red)
-										case "÷":
-											Image(systemName: "divide")
-										case "×":
-											Image(systemName: "multiply")
-										case "-":
-											Image(systemName: "minus")
-										default:
-											Text(title)
+									case "Del":
+										Image(systemName: "delete.left")
+											.foregroundColor(Color.red)
+									case "÷":
+										Image(systemName: "divide")
+									case "×":
+										Image(systemName: "multiply")
+									case "-":
+										Image(systemName: "minus")
+									default:
+										Text(title)
 									}
 								}
 								.buttonStyle(GlassButtonStyle())
 								.frame(
 									maxWidth: (title == "=" || title == "0")
-									? .infinity : 80
+										? .infinity : 80
 								)
 								.font(.system(size: 40))
 								.foregroundStyle(Color.primary)
@@ -117,7 +119,7 @@ struct ContentView: View {
 					}
 					.padding()
 				}
-					// MARK: - Sheets
+				// MARK: - Sheets
 				.sheet(isPresented: $showCalculationsheet) {
 					CalculationList(history: $viewModel.calculationHistory)
 				}
@@ -134,7 +136,7 @@ struct ContentView: View {
 				Image(systemName: "plus.forwardslash.minus")
 				Text("Calculator")
 			}
-			
+
 			SettingsView(hapticFeedback: $hapticBinding)
 				.tabItem {
 					Image(systemName: "gear")
