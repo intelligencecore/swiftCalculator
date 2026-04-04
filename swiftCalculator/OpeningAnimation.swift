@@ -23,7 +23,7 @@ struct OpeningAnimation: View {
 			if currentState == .launching {
 				
 				VStack {
-					Image(systemName: "plus.forwardslash.minus")
+					Image(systemName: "plus")
 						.font(.system(size: 100))
 						.foregroundStyle(.orange)
 						
