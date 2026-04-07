@@ -14,7 +14,7 @@ class CurrencyExchangeViewModel: ObservableObject {
 	@Published var amount: String = ""
 	@Published var result: String = ""
 	
-	let currencies = ["American Dollar", "Canadian Dollar", "Euro"]
+	let currencies = ["American Dollar", "Canadian Dollar", "Euro", "Australian Dollar"]
 	
 	let rates: [String: Double] = [
 		"American Dollar": 1.0,
