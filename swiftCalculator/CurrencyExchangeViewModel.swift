@@ -19,9 +19,9 @@ class CurrencyExchangeViewModel: ObservableObject {
 	let rates: [String: Double] = [
 		"American Dollar": 1.0,
 		"Canadian Dollar": 0.74,
-		"Euro": 1.08
+		"Euro": 1.08,
 		"Autralian DOllar": 1.33
-		
+	
 	]
 	
 	func convert() {

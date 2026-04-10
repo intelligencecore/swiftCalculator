@@ -124,7 +124,7 @@ struct ContentView: View {
 					CalculationList(history: $viewModel.calculationHistory)
 				}
 				.sheet(isPresented: $showMoneyExchange) {
-					MoneyExchange()
+					CurrencyExchangeViewModel()
 				}
 				.alert("Cannot Divide by Zero", isPresented: $dividingByZero) {
 					Button("OK") { viewModel.displayText = "0" }
