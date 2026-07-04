@@ -7,7 +7,7 @@
 import Combine
 import Foundation
 
-
+// main class
 class CurrencyExchangeViewModel: ObservableObject {
 	@Published var fromCurrency: String = "American Dollar"
 	@Published var toCurrency: String = "Euro"
