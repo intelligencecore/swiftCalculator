@@ -3,7 +3,9 @@
 
 
 
+//TODO: Setup a new button array, make it more like the real calculator. (With grids and all of that)
 
+//TODO: Set up the ipad mode so it doesnt look like an enlarged ipad app
 
 
 import SwiftUI
@@ -47,7 +49,7 @@ struct OpeningAnimation: View {
 					
 					
 						// Transition to main app after 0.5 seconds
-					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
 						withAnimation(.easeOut(duration: 0.3)) {
 							currentState = .active
 						}
